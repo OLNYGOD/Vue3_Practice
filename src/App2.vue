@@ -35,14 +35,15 @@
   <textarea v-model.lazy="text" /><br />
   <button @click="addMessage">新增文字</button>
 
-    <br>{{ selectValue }} <br />
+  <br>{{ selectValue }} <br />
   <select v-model="selectValue">
     <option value="">select</option>
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
   </select>
-<br>{{ isCheck }} <br />
+
+  <br>{{ isCheck }} <br />
   <input type="checkbox" v-model="isCheck" /> is check
 
   <br>{{ checkbox }} <br />
@@ -56,6 +57,40 @@
   <input type="radio" value="1" v-model="radio" /> 1
   <input type="radio" value="2" v-model="radio" /> 2
   <input type="radio" value="3" v-model="radio" /> 3
+
+  <br>{{ formData.name }}
+
+  <br>
+    <input type="text" v-model="formData.name" />
+  <br />
+
+  <textarea v-model="formData.text" />
+  <br />
+
+  <select v-model="formData.selectValue">
+    <option value="">select</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+  <br />
+
+  <input type="checkbox" v-model="formData.isCheck" /> is check
+  <br />
+
+  <input type="checkbox" value="0" v-model="formData.checkbox" /> 0
+  <input type="checkbox" value="1" v-model="formData.checkbox" /> 1
+  <input type="checkbox" value="2" v-model="formData.checkbox" /> 2
+  <input type="checkbox" value="3" v-model="formData.checkbox" /> 3
+  <br />
+
+  <input type="radio" value="0" v-model="formData.radio" /> 0
+  <input type="radio" value="1" v-model="formData.radio" /> 1
+  <input type="radio" value="2" v-model="formData.radio" /> 2
+  <input type="radio" value="3" v-model="formData.radio" /> 3
+  <br />
+  <button @click="submit">送出</button>
+
 </template>
 
 <script>
@@ -81,6 +116,14 @@ export default {
       isCheck: false,
       checkbox: [],
       radio: '',
+      formData: {
+        name: '',
+        text: '',
+        selectValue: '',
+        isCheck: false,
+        checkbox: [],
+        radio: '',
+      },
       };
     },
     methods: {
@@ -104,8 +147,10 @@ export default {
         this.text1.push(this.text);
         }
       },
+      submit() {
+        console.log(this.formData);
+      },
     },
-    
 };
 </script>
 
