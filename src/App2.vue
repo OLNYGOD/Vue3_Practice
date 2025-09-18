@@ -91,6 +91,10 @@
   <br />
   <button @click="submit">送出</button>
 
+  <div v-for="data in checkedDatas" :key="data.id">
+    {{ data.id }} {{ data.name }}
+  </div>
+
 </template>
 
 <script>
@@ -124,6 +128,12 @@ export default {
         checkbox: [],
         radio: '',
       },
+      datas: [
+        { id: 1, name: 'Jake' },
+        { id: 2, name: 'Allan' },
+        { id: 1, name: 'Eason' },
+      ],
+      checkedDatas: [],
       };
     },
     methods: {
@@ -150,7 +160,14 @@ export default {
       submit() {
         console.log(this.formData);
       },
+      checkDatas() {
+        console.log("data1");
+      return this.datas.filter((data) => data.id === 1);
     },
+    },
+    created() {
+    this.checkedDatas = this.checkDatas();
+  },
 };
 </script>
 
