@@ -91,7 +91,7 @@
   <br />
   <button @click="submit">送出</button>
 
-  <div v-for="data in checkedDatas" :key="data.id">
+  <div v-for="data in checkDatas" :key="data.id">
     {{ data.id }} {{ data.name }}
   </div>
 
@@ -133,7 +133,6 @@ export default {
         { id: 2, name: 'Allan' },
         { id: 1, name: 'Eason' },
       ],
-      checkedDatas: [],
       };
     },
     methods: {
@@ -160,14 +159,14 @@ export default {
       submit() {
         console.log(this.formData);
       },
-      checkDatas() {
-        console.log("data1");
+    },
+    computed: {
+    checkDatas() {
+        console.log("只執行一次且vue3會自動管理不需要額外賦值");
       return this.datas.filter((data) => data.id === 1);
     },
-    },
-    created() {
-    this.checkedDatas = this.checkDatas();
   },
+    
 };
 </script>
 
