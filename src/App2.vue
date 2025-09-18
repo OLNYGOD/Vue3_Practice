@@ -24,7 +24,7 @@
   <br>
   {{ name }}
   {{ count }} <br>
-  <button @click="countFunction(2), changeName()">button</button>
+  <button @click="countFunction(2), changeName()">記數和改名</button>
   <br />
   <input type="text" v-model.lazy="name" /><br>
   <button @click="addUser">新增使用者</button>
@@ -91,10 +91,10 @@
   <br />
   <button @click="submit">送出</button>
 
-  <div v-for="data in checkDatas" :key="data.id">
-    {{ data.id }} {{ data.name }}
+  <br /><div v-for="data in checkDatas" :key="data.id">
+    {{ data.id }} {{ data.name }}<br />
   </div>
-
+<input type="text" v-model.lazy="user.name" /><br />
 </template>
 
 <script>
@@ -133,6 +133,9 @@ export default {
         { id: 2, name: 'Allan' },
         { id: 1, name: 'Eason' },
       ],
+      user: {
+        name: '',
+      },
       };
     },
     methods: {
@@ -166,7 +169,23 @@ export default {
       return this.datas.filter((data) => data.id === 1);
     },
   },
-    
+  watch: {
+  count(newValue, oldValue) {
+    console.log(newValue, oldValue);
+    },
+    user: {
+      handler(newValue) {
+        console.log(newValue);
+      },
+      deep: true, //要監聽物件時，要設定才會起作用
+    },
+    users1: {
+      handler(newValue) {
+        console.log(newValue);
+      },
+      deep: true, //要監聽陣列時，要設定才會起作用
+    },
+  },
 };
 </script>
 
