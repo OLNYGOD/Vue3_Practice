@@ -95,9 +95,12 @@
     {{ data.id }} {{ data.name }}<br />
   </div>
 <input type="text" v-model.lazy="user.name" /><br />
+<img alt="Vue logo" src="./assets/logo.png">
+<HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
+import HelloWorld from './components/HelloWorld.vue'
 export default {
   name: 'MainApp',
   data() {
@@ -185,6 +188,9 @@ export default {
       },
       deep: true, //要監聽陣列時，要設定才會起作用
     },
+  },
+  components: {
+    HelloWorld
   },
 };
 </script>
