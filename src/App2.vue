@@ -99,12 +99,17 @@
 <HelloWorld msg="Welcome to Your Vue.js App"/>
 <!--使用AppHeader變數-->
 <AppHeader :name="name"/>
+<!--將AppView 的viewText 傳入text2-->
+<AppView @viewText="getViewText" />
+<br />
+{{ text2 }}
 </template>
 
 <script>
 // 要跨檔案要用import
 import HelloWorld from './components/HelloWorld.vue';
-import AppHeader from './components/Header.vue';
+import AppHeader from './components/AppHeader.vue';
+import AppView from './components/AppView.vue';
 export default {
   name: 'MainApp',
   data() {
@@ -123,6 +128,7 @@ export default {
       name: 'Andy',
       text1: [],
       text: '',
+      text2: '',
       selectValue: '',
       isCheck: false,
       checkbox: [],
@@ -169,6 +175,9 @@ export default {
       submit() {
         console.log(this.formData);
       },
+      getViewText(text) {
+      this.text2 = text;
+      },
     },
     computed: {
     checkDatas() {
@@ -195,7 +204,8 @@ export default {
   },
   components: {
     HelloWorld,
-    AppHeader
+    AppHeader,
+    AppView,
   },
 };
 </script>
