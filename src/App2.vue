@@ -90,17 +90,21 @@
   <input type="radio" value="3" v-model="formData.radio" /> 3
   <br />
   <button @click="submit">送出</button>
-
   <br /><div v-for="data in checkDatas" :key="data.id">
     {{ data.id }} {{ data.name }}<br />
   </div>
 <input type="text" v-model.lazy="user.name" /><br />
 <img alt="Vue logo" src="./assets/logo.png">
+<!--要import 要在template使用 HelloWorld  AppHeader-->
 <HelloWorld msg="Welcome to Your Vue.js App"/>
+<!--使用AppHeader變數-->
+<AppHeader :name="name"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// 要跨檔案要用import
+import HelloWorld from './components/HelloWorld.vue';
+import AppHeader from './components/Header.vue';
 export default {
   name: 'MainApp',
   data() {
@@ -190,7 +194,8 @@ export default {
     },
   },
   components: {
-    HelloWorld
+    HelloWorld,
+    AppHeader
   },
 };
 </script>
