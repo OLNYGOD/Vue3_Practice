@@ -103,9 +103,11 @@
 <!--使用AppHeader變數-->
 <AppHeader :name="name"/>
 <!--將AppView 的viewText 傳入text2-->
-<AppView @viewText="getViewText" />
-<br />
-{{ text2 }}
+<AppView @viewText="getViewText" /><br />
+{{ textFromAppView }}<br />
+<!--使用AppInput  v-model雙向綁定-->
+<AppInput  input v-model="nameFormInput" /><br />
+{{ nameFormInput }}<br />
 </template>
 
 <script>
@@ -113,6 +115,7 @@
 import HelloWorld from './components/HelloWorld.vue';
 import AppHeader from './components/AppHeader.vue';
 import AppView from './components/AppView.vue';
+import AppInput from './components/AppInput.vue';
 export default {
   name: 'MainApp',
   data() {
@@ -133,7 +136,7 @@ export default {
       name: 'Andy',
       text1: [],
       text: '',
-      text2: '',
+      textFromAppView: '',
       //搭配下拉式選單使用
       selectValue: '',
       //搭配checkbox使用
@@ -158,6 +161,7 @@ export default {
       user: {
         name: '',
       },
+      nameFormInput: '123',
       };
     },
     // function 定義在 methods 內
@@ -186,7 +190,7 @@ export default {
         console.log(this.formData);
       },
       getViewText(text) {
-      this.text2 = text;
+      this.textFromAppView = text;
       },
     },
     // computed 會有快取功能，當依賴的資料沒有改變時，不會重新計算
@@ -219,6 +223,7 @@ export default {
     HelloWorld,
     AppHeader,
     AppView,
+    AppInput,
   },
 };
 </script>
