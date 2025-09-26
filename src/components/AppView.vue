@@ -15,9 +15,9 @@ export default {
   },
   methods: {
     submit() {
-      //emit 將text2傳回App2.vue
+      //emit 將text傳回App2.vue
       this.$emit('viewText', this.text);
-      this.text2 = '';
+      this.text = '';
     },
   },
 };
