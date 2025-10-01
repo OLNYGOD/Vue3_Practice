@@ -1,7 +1,7 @@
 <template>
   <h1>Hello Component</h1>
-  <p>{{ name }}</p>
-  <p>{{ user1 }}</p>
+  <p>姓名： {{ name }}</p>
+  <p>使用者： {{ user1 }}</p>
 </template>
 
 <script>
