@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" v-model="text" placeholder="請輸入文字" />
+    <input type="text" v-model.lazy="text" placeholder="請輸入文字" />
     <button @click="submit">送出</button>
   </div>
 </template>
